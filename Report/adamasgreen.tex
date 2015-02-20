@@ -1,0 +1,32 @@
+\documentclass[12pt, titlepage]{article}
+\usepackage{amssymb, amsmath, hyperref,setspace}
+\usepackage[margin=1in]{geometry}
+\usepackage{bbm}
+\usepackage{color,parskip}
+\usepackage{commath}
+\DeclareMathAlphabet{\mathscr}{OT1}{pzc}{m}{it}
+\usepackage{epsfig, graphicx}
+\usepackage{verbatim}
+\renewcommand{\v}[1]{\ensuremath{\mathbf{#1}}} % for vectors
+\renewcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pdd}[2]{\frac{\partial^2 #1}{\partial #2^2}}
+% for partial derivatives
+\newcommand{\gv}[1]{\ensuremath{\mbox{\boldmath$ #1 $}}}
+% for vectors of Greek letters
+\newcommand{\grad}[1]{\gv{\nabla} #1} % for gradient
+\let\divsymb=\div % rename builtin command \div to \divsymb
+\renewcommand{\div}[1]{\gv{\nabla} \cdot #1} % for divergence
+\newcommand{\curl}[1]{\gv{\nabla} \times #1} % for curl
+% for double partial derivatives
+\title{Laser-Wakefield Electron Accelerators}
+\author{Adam A. S. Green}
+\begin{document}
+\begin{spacing}{1.1}
+\bibliographystyle{plain}
+\maketitle
+\begin{abstract}
+\end{abstract}
+\section{Introduction}
+\label{sec:intro}
+
+\end{document}
