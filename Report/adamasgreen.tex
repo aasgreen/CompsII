@@ -1,32 +1,87 @@
 \documentclass[12pt, titlepage]{article}
 \usepackage{amssymb, amsmath, hyperref,setspace}
 \usepackage[margin=1in]{geometry}
-\usepackage{bbm}
-\usepackage{color,parskip}
-\usepackage{commath}
+\usepackage{color,parskip,siunitx,physics}
 \DeclareMathAlphabet{\mathscr}{OT1}{pzc}{m}{it}
 \usepackage{epsfig, graphicx}
 \usepackage{verbatim}
-\renewcommand{\v}[1]{\ensuremath{\mathbf{#1}}} % for vectors
-\renewcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
-\newcommand{\pdd}[2]{\frac{\partial^2 #1}{\partial #2^2}}
-% for partial derivatives
-\newcommand{\gv}[1]{\ensuremath{\mbox{\boldmath$ #1 $}}}
-% for vectors of Greek letters
-\newcommand{\grad}[1]{\gv{\nabla} #1} % for gradient
-\let\divsymb=\div % rename builtin command \div to \divsymb
-\renewcommand{\div}[1]{\gv{\nabla} \cdot #1} % for divergence
-\newcommand{\curl}[1]{\gv{\nabla} \times #1} % for curl
+
 % for double partial derivatives
 \title{Laser-Wakefield Electron Accelerators}
 \author{Adam A. S. Green}
 \begin{document}
-\begin{spacing}{1.1}
 \bibliographystyle{plain}
 \maketitle
+\tableofcontents
 \begin{abstract}
+In the late 1970's, Tajima and Dawson proposed a method of acceleration electron
+using the large electric field gradients that plasmas are capable of sustaining. They showed that when a large amplitude laser pulse is sent through an plasma, it is capable of creating a co-propogating longitudinal plasma wave that is capable of having an electric field gradient of multiple Gev/cm. 
+
+In this work, we review the state-of-the-art experimental progress being made in creating a fully functioning electron accelerator based on laser plasma acceleration (LPA) technology. We discuss how the energy in a  transverse, oscillitory electric field of a high intensity pulsed laser can be converted into an electric field gradient that can be used to accelerate electrons, and we will briefly review the physics of its propogation. 
 \end{abstract}
 \section{Introduction}
 \label{sec:intro}
+The ability to accelerate electrons to relativistic energies ($ E > m_e c$) has had of the the largest impacts in modern science: leading to advances in particle physics, radiology, and condensed matter.
+It remains one of the most systematic ways to produce collumated x-ray's.
+Unfortunately, the maximum accelerating gradient able to be produced by current tecnology is on the scale of $\sim \SI{100}{\electronvolt.cm^{-1}}$, which, in order to produce relativistic
+energies ($\sim \SI{.511}{\mega\electronvolt}$), requires a lot
+of centimeters: CERN has a circumfrence of \SI{27}{km}. The large size needed has precluded the use widespread use of relativistic electrons.
 
+In contrast, the accelerating gradient in typical LPA technology is $\sim \SI{1}{\giga\electronvolt.cm^{-1}}$. This then is the promise of LPA technology: table-top sized experiments that will allow the widespread disemmenation of relativistic electrons. 
+\section{The Physics of Laser-Plasma-Acceleration}
+
+\subsection{The Need for Plasmas}
+The reason that LPA has had such a resurgance is that it was only recently that laser technology was able to produce the electric field gradients neccesary. For instance, the laser used at UT-Austin in their LPA technology uses required a peak intensity of \SI{e18}{W.cm^{-2}} {\bf (not quite right, this is another group).}
+
+It is tempting to ask why the plasma is needed at all when you have a laser capable of generating such high power-- why not just use the laser? In {\bf date} Woodward and Lauren proved that laser's cannot actually be used to accelerate particles, for much the same reason that boats only move up and down in linear ocean waves. {\bf maybe not the full story-- the ponderamotive force can't?}
+
+The plasma acts as an intermediary, allowing the large electronic gradients present in a propogating high-intensity laser pulse to be transfered into a co-propogating longitudal wave. It is this longitudal wave that allows the electrons to be accelerated. In the section that follows, we will dicuss the physics behind this energy transfer in more depth.
+\section{The Creation and Propogation of Plasmons and Bubbles}
+The full theory required to describe the current state-of-the-art LPA technology is
+too difficult to treat analytically, so the majority of theoretical research currently
+being done in the field uses numerics. However, the basic physics involved with LPA technology
+can be illustrated quite simply, which can be useful to build an intuition about the
+processes that occur. In the following sections, we will review a basic physical model
+of the laser plasma interaction.
+\subsection{Linear Regime: Cold Fluid Equations}
+In treating a plasma mathematically as a fluid, we must consider that the fluid particles
+will also have to obey the Maxwell equations. This means that the well known Navier-Stokes
+equation has to be modified to include additional terms. In a simple model, where the electron
+motion is confined to motion in the $x$ direction, and $T=0$ and $B=0$, the full equations
+needed to describe the cold plasma is given by:
+\begin{subequations}
+    \begin{align}
+        \div{\vb{E}} & = 4 \pi e \qty(n_i-n_e) \\
+    m n_e \left( \pdv{\vb{v}_e}{t} \right) &= -e n_e \vb{E} \\
+        \pdv{n_e}{t} + \div{ \qty(n_e \vb{v}_e)} & = 0\\
+    \end{align}
+\end{subequations}
+
+With an small incident electric field, we can linearize the equations about
+equationbrium:
+\begin{align*}
+    &\vb{E} \rightarrow \vb{E_0} + \vb{E_1}\\
+    &n \rightarrow 0 + \delta n \\
+    &\vb{v} \rightarrow \vb{v_0} + \vb{v_1}
+\end{align*}
+
+Only keeping terms to first order, and assuming that the perturbations vary sinusoidally,
+this gives us the disperion of Langumir waves in a cold plasma. 
+
+\begin{equation}
+\label{eq:dispersion}
+\omega = \qty(\frac{ne^2}{m_e \epsilon})^{1/2} = \omega_p,
+\end{equation}
+with $e$ as the electron's charge, $m_e$ the electron's mass, $n$ is the number
+density of electrons in the medium, and $\epsilon$ is the permativity of the plasma.
+
+
+\subsection{Injecting Electrons into Bubbles}
+
+\section{Experimental Set-Up and State-of-the-Art}
+
+\section{Future Work and Outlook for the Field}
+
+\section{Conclusion}
 \end{document}
+
