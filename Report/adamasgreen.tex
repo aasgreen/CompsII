@@ -44,37 +44,28 @@ can be illustrated quite simply, which can be useful to build an intuition about
 processes that occur. In the following sections, we will review a basic physical model
 of the laser plasma interaction.
 \subsection{Linear Regime: Cold Fluid Equations}
-In treating a plasma mathematically as a fluid, we must consider that the fluid particles
-will also have to obey the Maxwell equations. This means that the well known Navier-Stokes
-equation has to be modified to include additional terms. In a simple model, where the electron
-motion is confined to motion in the $x$ direction, and $T=0$ and $B=0$, the full equations
-needed to describe the cold plasma is given by:
-\begin{subequations}
-    \begin{align}
-        \div{\vb{E}} & = 4 \pi e \qty(n_i-n_e) \\
-    m n_e \left( \pdv{\vb{v}_e}{t} \right) &= -e n_e \vb{E} \\
-        \pdv{n_e}{t} + \div{ \qty(n_e \vb{v}_e)} & = 0\\
-    \end{align}
-\end{subequations}
+To first order the plasma can be treated as a set of uncoupled harmonic oscillators. When the high-intensity, short-pulsed laser is incident, it will have two main actions: the first is to accelerate\footnote{The term used to describe this in plasma literature is `quiver', as the time-average motion amounts to zero because of the oscillitory nature of the radial electric field.l}
+electrons along the radial electric field; the second is to accelerate electrons along the propogation direction due to the ponderomotive force. 
 
-With an small incident electric field, we can linearize the equations about
-equationbrium:
-\begin{align*}
-    &\vb{E} \rightarrow \vb{E_0} + \vb{E_1}\\
-    &n \rightarrow 0 + \delta n \\
-    &\vb{v} \rightarrow \vb{v_0} + \vb{v_1}
-\end{align*}
+The ponderomotive force is due to the gradient in electromagnetic energy along a pulsed laser. {\bf show gaussian picture}. It will tend to create a `bubble', as it expels the lighter electrons from the laser pulse, leaving the heavier ions.
 
-Only keeping terms to first order, and assuming that the perturbations vary sinusoidally,
-this gives us the disperion of Langumir waves in a cold plasma. 
-
+In our model, the ponderomotive force will act as a driving force on the plasma,
+which has a natural oscillation rate $\omega_p$. 
 \begin{equation}
-\label{eq:dispersion}
-\omega = \qty(\frac{ne^2}{m_e \epsilon})^{1/2} = \omega_p,
+    \label{eq:linear density oscillation}
+    \qty(\pdv[2]{}{t} +\omega_p^2) \frac{\delta n_e}{n_{e0}} = c^2 \laplacian{ \frac{a^2}{2}}
 \end{equation}
-with $e$ as the electron's charge, $m_e$ the electron's mass, $n$ is the number
-density of electrons in the medium, and $\epsilon$ is the permativity of the plasma.
 
+It is this density oscillation which creates an electric field through poisson's equation: $\vb{k}\dotproduct\vb{E} =\delta n_e/\epsilon$. It is this
+longitudinally propogating electric field that will accelerate the electrons in the plasma.
+ 
+{\it still need to mention resonance}
+
+The propogating laser packet expels electrons from its local region, which acts
+as a driving force to create a co-propogating density oscillation. This creates in effect a cavity of ions at moves at the phase velocity of the laser packet. 
+This gives rise to an electric field gradient that will be able to accelerate electrons.
+
+\subsection{Nonlinear-1D}
 
 \subsection{Injecting Electrons into Bubbles}
 
