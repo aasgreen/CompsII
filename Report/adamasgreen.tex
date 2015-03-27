@@ -1,5 +1,5 @@
 \documentclass[12pt, titlepage]{caesar_book}
-\usepackage{amssymb, amsmath, hyperref,setspace,sidenotes}
+\usepackage{amssymb, amsmath, hyperref,setspace,sidenotes,todo}
 \usepackage{color,parskip,siunitx,physics}
 \DeclareMathAlphabet{\mathscr}{OT1}{pzc}{m}{it}
 \usepackage{epsfig, graphicx}
@@ -108,7 +108,58 @@ as a driving force to create a co-propogating density oscillation. This creates
 in effect a cavity of ions at moves at the phase velocity of the laser packet.  
 This gives rise to an electric field gradient that will be able to accelerate 
 electrons.
+\section{Trapping Electrons}
+In order to be accelerated by the co-propogating electric field created by the
+plasmon, the electrons need to be travelling at some minimum speed. In the
+plasmon frame of reference, what an electron will see is, roughly, an
+ion-sphere. If we confine the electrons motion to 1D, then it can exhibit
+periodic motion about the centre of this sphere. 
 
+However, for this to work, the electron needs to have some minimum energy.
+Imagining a simple harmonic potential that is moving at some brisk speed $v_b >
+\sqrt{2 V_\mathrm{height of well}/m} $, we can see that an electron at rest will
+not be trapped: transforming to the potentials frame of reference, the electron
+will have too much energy to be trapped.
+\begin{marginfigure}
+    \includegraphics[width=4cm]{./Figures/pf.png}
+    \caption{This shows the ponderomotive force. It will expel electrons from
+        the laser
+        packet region, in effect creating an ion-sphere that will create an
+        accelerating force
+    on a 'test' electron}
+\end{marginfigure}
+This is quite similar to the case we are describing: however, we now have to
+consider that the electron's motion is going to be relativistic. In this case,
+the minimum energy an electron needs is given by \todo{need to add citation}:
+\begin{equation}
+    \gamma_\mathrm{min} = \Delta \phi / (1+\beta_p) + \beta_p/(2 \Delta \phi)
+\end{equation}
+
+\todo{I'm not sure about adding this equation in. Probably take it out-- leave
+    it at a general discussion and maybe show a plot of what a test electron's
+trajectory would look like.}
+
+For a very specific value of the accelerating electric field the background
+electrons that make up the density flucuations will actually meet the
+requirements to be trapped in this way. This gives rise to the phenomena of
+wavebreaking. In contrast to the perhaps more familiar example of water-wave's
+breaking, plasma wavebreaking is not a dispersion related phenomena. It is a
+non-linear effect, where the accelerating field created by the density
+flucuations of electrons in the plasma is strong enough to directly effect the
+density flucuations themselves.
+
+Wavebreaking is a useful phenomena for LWFA as it creates a larger field that
+can give more energy to the electrons. The phenomelogical differences between a
+linear plasmon and a wavebroken plasmon are show in Figure \todo{add figure}.
+
+{\em Trapping and accleration in nonlinear plasma waves was very useful-- a
+    little terse. Mainly, they just guessed the hamiltonian for the system,
+    plotted traj. around the fixed points and then said that the largest energy
+    gain is by largest traj in phase space. (makes sense). Then they solve for
+    the minimun kinetic energy a test electron would have on the largest traj.
+    This then is the minimum energy required for an electron to be caught. I'm
+    still not quite sure about some of the sublties about the phase (position)
+relationship to the energy.}
 \subsection{Nonlinear-1D}
 
 \subsection{Injecting Electrons into Bubbles}
