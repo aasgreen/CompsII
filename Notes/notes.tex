@@ -1,7 +1,7 @@
-\documentclass[12pt, titlepage]{article}
+\documentclass[12pt, titlepage]{caesar_book}
 \usepackage{amssymb, amsmath, hyperref,setspace,physics}
 \usepackage{color,parskip,siunitx}
-\usepackage{epsfig, graphicx, todonotes}
+\usepackage{epsfig, graphicx, todonotes,sidenotes}
 \usepackage{verbatim}
 
 \begin{document}
@@ -53,7 +53,28 @@ The relativisitic factor then becomes:
 \end{equation}
 I think I may just show a figure for the non-linear case. The equation is hard 
 to look at and understand. Cite heavily.
+\section{Trapping Electrons}
+In order to be accelerated by the co-propogating electric field created by the plasmon, the electrons need to be travelling at some minimum speed. In the plasmon frame of reference, what an electron will see is, roughly, an ion-sphere. If we confine the electrons motion to 1D, then it can exhibit periodic motion about the centre of this sphere. 
 
+However, for this to work, the electron needs to have some minimum energy. Imagining a simple harmonic potential that is moving at some brisk speed $v_b > \sqrt{2 V_\mathrm{height of well}/m} $, we can see that an electron at rest will not be trapped: transforming to the potentials frame of reference, the electron will have too much energy to be trapped.
+\begin{marginfigure}
+\includegraphics[width=4cm]{./pf.png}
+\caption{This shows the ponderomotive force. It will expel electrons from the laser
+packet region, in effect creating an ion-sphere that will create an accelerating force
+on a 'test' electron}
+\end{marginfigure}
+This is quite similar to the case we are describing: however, we now have to consider that the electron's motion is going to be relativistic. In this case, the minimum energy an electron needs is given by \todo{need to add citation}:
+\begin{equation}
+\gamma_\mathrm{min} = \Delta \phi / (1+\beta_p) + \beta_p/(2 \Delta \phi)
+\end{equation}
+
+\todo{I'm not sure about adding this equation in. Probably take it out-- leave it at a general discussion and maybe show a plot of what a test electron's trajectory would look like.}
+
+For a very specific value of the accelerating electric field the background electrons that make up the density flucuations will actually meet the requirements to be trapped in this way. This gives rise to the phenomena of wavebreaking. In contrast to the perhaps more familiar example of water-wave's breaking, plasma wavebreaking is not a dispersion related phenomena. It is a non-linear effect, where the accelerating field created by the density flucuations of electrons in the plasma is strong enough to directly effect the density flucuations themselves.
+
+Wavebreaking is a useful phenomena for LWFA as it creates a larger field that can give more energy to the electrons. The phenomelogical differences between a linear plasmon and a wavebroken plasmon are show in Figure \todo{add figure}.
+
+{\em Trapping and accleration in nonlinear plasma waves was very useful-- a little terse. Mainly, they just guessed the hamiltonian for the system, plotted traj. around the fixed points and then said that the largest energy gain is by largest traj in phase space. (makes sense). Then they solve for the minimun kinetic energy a test electron would have on the largest traj. This then is the minimum energy required for an electron to be caught. I'm still not quite sure about some of the sublties about the phase (position) relationship to the energy.}
 
 \section{Laboratory Visualization of Laser-Driven Plasma Accelerators in the BUbble Regime}
 \section{Injection in Plasma-Based Electron Accelerators}
@@ -62,16 +83,15 @@ to look at and understand. Cite heavily.
 Should include figure from the Texas people. 
 
 Using chirped-pulse-amplification (CPA), extremely high peak power can be achieved by modern ultra-fast laser. CPA works by first creating an ultrashort
-pulse using a mode-locked laser (such as Ti:Sapphire). The pulse energy is fairly small to begin with\footnote{Typically around \SI{e-9}{\joule}, with duration $\tau =$ \SIrange{e-12}{e-14}{\second}, for peak powers of \SIrange{e3}{e5}{\watt} }. To avoid damage to the amplification stage, the pulse is given a `chirp' in the frequency domain: the simplest example of this is to send a pulse down an optical fibre, where the dispersion will naturally broaden the pulse
+
 in time. Once the pulse has been stretched out, the peak power will decrease, and the pulse can be safely sent through a laser-amplification stage, typically with a gain between 2-100 per pass. Once the pulse has been safely amplified, it can be re-compressed, using a technology such as parallel grating compressor.
-The whole process can increase the peak power from \SIrange{e3}{e14}{\watt}, as
+The whole process can increase the peak power from $\SIrange{e3}{e14}{\watt}$, as
 in the Texas PetaWatt Laser at UT-Austin.
 
 With laser peak power this high, it can easily ionize a solid target-- creating
 the plasma that it will be propogating through. In the Texas setup, the laser pulse is incident on a gas-cell, where it will create the co-propogating density wave by `blowing out' the electrons from the region of the laser pulse.
 
-This will set-up the longitudinal electric field that acts to accelerate the electrons. The electrons will be accelerated for the duration of the glass cell, and then be expelled into free space. 
-
+This will set-up the longitudinal electric field that acts to accelerate the electrons. The electrons will be accelerated for the duration of the glass cell, and then be expelled into free space.  
 There is an array of sensors to measure the incoming electrons. First, they pass
 through a magnetic field, which bends them with a radius of curvature $ r = mv/(eB)$ \todo{make this relativisitic}. The slower moving electrons will be bent more, hitting an imagining plate. The faster moving electrons will continue on, largely undeflected. They are incident on two imagining plates: the first is a high-sensitivity plate that picks up medium energy electrons ($E >\SI{0.5}{\giga\electronvolt}$) that have been energery dispersed (not well collumate), the
 second imagining plate is the one that picks up the well-collumated electron beam at $E \approx \SI{2}{\giga\electronvolt}$. Additionally, tungsten posts are placed at various places downsteam of the exit aperature. These posts will
