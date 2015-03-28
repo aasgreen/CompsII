@@ -1,31 +1,34 @@
-\documentclass[12pt, titlepage]{caesar_book}
-\usepackage{amssymb, amsmath, hyperref,setspace,sidenotes,todo}
+\documentclass[12pt,letterpaper, titlepage]{article}
+\usepackage{amssymb, amsmath, hyperref,setspace,sidenotes,todonotes}
 \usepackage{color,parskip,siunitx,physics}
 \DeclareMathAlphabet{\mathscr}{OT1}{pzc}{m}{it}
 \usepackage{epsfig, graphicx}
-\usepackage{verbatim}
-
+\usepackage{verbatim,marginfix}
+%\usepackage{mparhack}
+\usepackage[inner=2cm, outer=7cm, marginparsep=.5cm, marginparwidth=6cm, 
+twoside=true]{geometry}
 % for double partial derivatives
 \title{Laser-Wakefield Electron Accelerators}
 \author{Adam A. S. Green}
 \begin{document}
 \bibliographystyle{plain}
 \maketitle
-\tableofcontents
-%\begin{abstract}
-%In the late 1970's, Tajima and Dawson proposed a method of acceleration 
-%electron
-%using the large electric field gradients that plasmas are capable of 
-%sustaining. They showed that when a large amplitude laser pulse is sent through 
-%an plasma, it is capable of creating a co-propogating longitudinal plasma wave 
-%that is capable of having an electric field gradient of multiple Gev/cm. 
 
-%In this work, we review the state-of-the-art experimental progress being made 
-%in creating a fully functioning electron accelerator based on laser plasma 
-%acceleration (LPA) technology. We discuss how the energy in a  transverse, 
-%oscillitory electric field of a high intensity pulsed laser can be converted 
-%into an electric field gradient that can be used to accelerate electrons, and 
-%we will briefly review the physics of its propogation.  \end{abstract}
+\begin{abstract}
+In the late 1970's, Tajima and Dawson proposed a method of acceleration 
+electron
+using the large electric field gradients that plasmas are capable of 
+sustaining. They showed that when a large amplitude laser pulse is sent through 
+an plasma, it is capable of creating a co-propogating longitudinal plasma wave 
+that is capable of having an electric field gradient of multiple Gev/cm. 
+
+In this work, we review the state-of-the-art experimental progress being made 
+in creating a fully functioning electron accelerator based on laser plasma 
+acceleration (LPA) technology. We discuss how the energy in a  transverse, 
+oscillitory electric field of a high intensity pulsed laser can be converted 
+into an electric field gradient that can be used to accelerate electrons, and 
+we will briefly review the physics of its propogation.  \end{abstract}
+\tableofcontents
 \section{Introduction}
 \label{sec:intro}
 The ability to accelerate electrons to relativistic energies ($ E > m_e c$) has 
@@ -42,7 +45,9 @@ has precluded the use widespread use of relativistic electrons.
 In contrast, the accelerating gradient in typical LPA technology is $\sim 
 \SI{1}{\giga\electronvolt.cm^{-1}}$. This then is the promise of LPA technology: 
 table-top sized experiments that will allow the widespread disemmenation of 
-relativistic electrons.  \section{The Physics of Laser-Plasma-Acceleration}
+relativistic electrons. 
+\section{The Physics of Laser-Plasma-Acceleration}
+
 
 \subsection{The Need for Plasmas}
 The reason that LPA has had such a resurgance is that it was only recently that 
@@ -121,7 +126,7 @@ Imagining a simple harmonic potential that is moving at some brisk speed $v_b >
 not be trapped: transforming to the potentials frame of reference, the electron
 will have too much energy to be trapped.
 \begin{marginfigure}
-    \includegraphics[width=4cm]{./Figures/pf.png}
+    \includegraphics[width=\marginparwidth]{./Figures/pf.png}
     \caption{This shows the ponderomotive force. It will expel electrons from
         the laser
         packet region, in effect creating an ion-sphere that will create an
