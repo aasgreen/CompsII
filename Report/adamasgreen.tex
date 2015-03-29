@@ -2,7 +2,7 @@
 \usepackage{amssymb, amsmath, hyperref,setspace,sidenotes,todonotes}
 \usepackage{color,parskip,siunitx,physics}
 \DeclareMathAlphabet{\mathscr}{OT1}{pzc}{m}{it}
-\usepackage{epsfig, graphicx,comment}
+\usepackage{epsfig, graphicx,subcaption,caption}
 \usepackage{verbatim,marginfix}
 %\usepackage{mparhack}
 \usepackage[inner=2cm, outer=7cm, marginparsep=.5cm, marginparwidth=6cm, 
@@ -49,8 +49,26 @@ relativistic electrons.
 \section{The Physics of Laser-Plasma-Acceleration}
 
 \begin{marginfigure}
-    \includegraphics[angle=90,width=margi
+    \centering
+    \begin{subfigure}[t]{\marginparwidth}
+        \includegraphics[angle=90,width=\linewidth]{../figures/ioncav.png}
+\end{subfigure}
 
+	\begin{subfigure}[b]{\marginparwidth}
+	\includegraphics[angle=90,width=\linewidth]{../figures/ioncav2.png}
+	\end{subfigure}
+    \caption{The plasmon is what will accelerate the electrons. Broadly, it 
+    can be modeled as an ion-sphere that moves through the background. It will
+    create an electric field on the propogating axis that can accelerate
+electrons}
+	\end{marginfigure}
+
+\begin{marginfigure}
+    \includegraphics[angle=90, width =\marginparwidth]{../figures/disp.png}
+    \caption{The plasma disperion relation. Any EM waves that are propogating
+        below the plasma frequency will be reflected (light reflecting from
+        metal), if the EM wave is higher frequency, it can propogate through.}
+    \end{marginfigure}
 \begin{comment}
 \subsection{The Need for Plasmas}
 The reason that LPA has had such a resurgance is that it was only recently that 
@@ -58,7 +76,6 @@ laser technology was able to produce the electric field gradients neccesary. For
 instance, the laser used at UT-Austin in their LPA technology uses required a 
 peak intensity of \SI{e18}{W.cm^{-2}} {\bf (not quite right, this is another 
 group).}
-
 It is tempting to ask why the plasma is needed at all when you have a laser 
 capable of generating such high power-- why not just use the laser? In {\bf 
 date} Woodward and Lauren proved that laser's cannot actually be used to 
@@ -134,13 +151,18 @@ Imagining a simple harmonic potential that is moving at some brisk speed $v_b >
 not be trapped: transforming to the potentials frame of reference, the electron
 will have too much energy to be trapped.
 \begin{marginfigure}
-    \includegraphics[width=\marginparwidth]{./Figures/pf.png}
-    \caption{This shows the ponderomotive force. It will expel electrons from
-        the laser
-        packet region, in effect creating an ion-sphere that will create an
-        accelerating force
-    on a 'test' electron}
+    \centering
+    \begin{subfigure}[b]{.75\marginparwidth}
+    \includegraphics[angle=90,width=\linewidth]{../figures/pondforce.png}
+\end{subfigure}
+
+\begin{subfigure}[b]{.75\marginparwidth}
+    \includegraphics[width=\linewidth, angle=90]{../figures/ionback.png}
+\end{subfigure}
+\caption{The ponderomotive force can be thought of as the gradient of EM energy.
+It will act to move electrons out of the central region}
 \end{marginfigure}
+
 This is quite similar to the case we are describing: however, we now have to
 consider that the electron's motion is going to be relativistic. In this case,
 the minimum energy an electron needs is given by \todo{need to add citation}:
