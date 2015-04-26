@@ -219,7 +219,7 @@ accelerating field $E_z$. In order to excite resonance then $\tau_\textrm{laser}
 The numerical solutions to Eq. \eqref{eq:fullLPWA} are in Figure \ref{fig:plasmon}.
    \begin{figure}[h!]
        \centering
-       \includegraphics[width = \linewidth]{../figures/densityandewave.pdf}
+       \includegraphics[width = \linewidth]{../figures/densityandewave.eps}
        \caption{Showing plasmons generated with varying strengths of the peak
        amplitude of the laser pulse.\cite{genothesis}\label{fig:plasmon}
     The laser pulse is the dashed line, the density perturbation is the grey
@@ -447,21 +447,50 @@ Their current work is focused on visualizing and understanding the propogation
 of high-intensity laser light through their plasma, and they have developed
 several novel techniques.
 
-\todo[inline]{Expand on this-- quickly summarize the visualization thesis. Cite
-a few of their more recent papers}
 
 \subsection{Low-Intensity, Quasi-Linear Plasmas with Waveguides}
+
+\begin{marginfigure}
+    \includegraphics[width=\marginparwidth]{../figures/esaenergy.pdf}
+    \caption{The energy spectrum for the recent Berkeley result.}
+\end{marginfigure}
+
+
 In 2014, the Berkeley group reported a collumated electron beam with peak
 energy of \SI{4.2}{\giga \electronvolt}.
 
 The Berkeley has, for a while now, pursued the strategy of low-intensity laser
 pulses that are guided through channels. Their most current results use a
-capillary discharge channel. 
+capillary discharge channel. The physics of focusing remain the same: there is a
+radial density profile that has the same profile as a focusing lense. Instead of
+the density profile coming from relativistic effects, like the Texas group, the
+Berkeley group uses a plasma channel guide, which is a simple tube containing
+hydrogen gas, with a metal plate at each end. A voltage is applied across the
+length of the tube, ionizing the gas. The gas will cool down more rapidly along
+the edges of the tube, and this will give rise to an approximately parabolic
+density profile of the hydrogen
+gas\cite{PhysRevLett.89.185003,PhysRevE.63.015401}. It is this parabolic density profile which
+will act as the focusing lens of the plasma wave. The evolution of a laser pulse
+in a plasma channel is shown in Figure \ref{fig:esasim}. 
+\begin{marginfigure}
+	\includegraphics[width=\marginparwidth]{../figures/esareycapfield.pdf}
+    \caption{Evolution of the peak normalized intensity of the laser pulse,
+    ($a_0(z)$ done using a particle-in-cell simulation for a top-hat laser pulse
+    with energy 16 J, through a 9 \si{cm} plasma waveguide. {\em From Leemans
+et. al. 2014 \cite{PhysRevLett.113.245002}}\label{fig:esasim}}
+\end{marginfigure}
+
 
 The benefits over the Texas strategy is that they gain signifigantly on energy
 conversion. Because they don't need to enter into the self-focusing regime,
 they can use much less powerful lasers, and compensate by accelerating the
-electrons over a larger distance. 
+electrons over a larger distance. As well, there are some concerns in the field
+that the relativistic self-focusing process is too unstable to guide the beam
+over the necesariy distances\cite{RevModPhys.81.1229}, but some progress has
+been made to extend the distances that relativistic self-guiding can be used
+over\cite{PhysRevLett.113.245001}.
+
+
 \section{Future Work and Outlook for the Field}
 \section{Conclusion}
     \begin{equation}
