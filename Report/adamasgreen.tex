@@ -17,7 +17,7 @@ twoside=true]{geometry}
 \renewcommand*{\marginpar}[1]{\oldmarginpar{\begin{singlespace*} \marginparstyle #1
 \end{singlespace*}}}
 \usetikzlibrary{shapes.geometric, arrows}
-\usepackage{ebgaramond,sidenotes}
+\usepackage{sidenotes}
 \title{Laser-Wakefield Electron Accelerators}
 \author{Adam A. S. Green}
 \begin{document}
@@ -27,50 +27,54 @@ twoside=true]{geometry}
 \strictpagecheck
 
 \begin{abstract}
-In the late 1970's, Tajima and Dawson proposed a method of acceleration 
-electron using the large electric field gradients that plasmas are capable of 
+In the late 1970's, Tajima and Dawson proposed a method of accelerating 
+electrons using the large electric field gradients that plasmas are capable of 
 sustaining. They showed that when a large amplitude laser pulse is sent through 
-an plasma, it is capable of creating a co-propogating longitudinal plasma wave 
-that is capable of having an electric field gradient of multiple Gev/cm-- orders
-of magnitude larger than that of conventional particle accelerators.. 
+a plasma it can create a co-propogating longitudinal plasma wave 
+capable of having electric field gradients of multiple
+\si{\giga\electronvolt\per\centi\meter}-- orders
+of magnitude larger than that of conventional particle accelerators.
 
 In this work, we review the state-of-the-art experimental progress being made 
 in creating a fully functioning electron accelerator based on laser plasma 
-acceleration (LPA) technology. We discuss how the energy in a  transverse, 
-oscillitory electric field of a high intensity pulsed laser can be converted 
-into an electric field gradient that can be used to accelerate electrons, and 
-we will briefly review the physics of its propogation.  \end{abstract}
+acceleration (LPA) technology. We discuss how the energy in an 
+ electric field of a high intensity pulsed laser can be converted 
+into an electric field gradient that can be used to accelerate electrons. 
+We will review the physics of the laser-plasma interaction, and discuss the
+limitations involved. We will finish with a review of the two most advanced
+experimental efforts to advance LPA technology.  \end{abstract}
 \tableofcontents
 \section{Introduction}
 \label{sec:intro}
-Laser plasma wakefield accelerators (LPWA) will be a revolutionary technology
-for scientists. The acceleration gradients that plasmas are capable of
+The field of laser plasma acceleration is motivated by the goal of having
+table-top electron accelerators capable of producing electron beams with
+hundreds of \si{\giga\electronvolt}. This is achievable because the acceleration gradients that plasmas are capable of
 sustaining are many orders of magnitude larger than conventional particle
-accelerators. This allows technologies based on plasmas, such as LPWA, to be
-orders of magnitude smaller.
- Much like the introduction of the personal computer in the era of massive
- supercomputers, LPWA will put the technology of electron acceleration to
- large\sidenote{Multiple GeV's} energies in the hands of many.
+accelerator. Much like the introduction of the personal computer in the era of massive
+supercomputers, LPWA will put the technology of electron acceleration to
+large energies in the hands of many.
+
+ 
+ 
  The ability to accelerate particles to high energies is a cornerstone
  in many areas of science. Although the recent discovery of the Higgs
- boson\cite{} at the LHC demonstrated the value of ion-accelerators capable of
+ boson\cite{atlas} at the LHC demonstrated the value of ion-accelerators capable of
  TeV energies, a more direct comparison to the regimes acheivable to LPWA
  technology would be to linacs-- such as Stanford Linear Accelerator Center
- (SLAC), which can accelerate electrons to hundreds of GeVs\cite{}.
+ (SLAC), which can excite electrons up to 50 \si{\giga\electronvolt}.
 
  Although historically important to the development of particle
- physics\footnote{The experimental discoveries of the quark, and the tau lepton
- were made at SLAC}, the most broad application of linacs such as SLAC is the use of
+ physics the most broad application of linacs such as SLAC is the use of
  accelerated electrons for an free-electron x-ray laser; the development of
  which has allowed investigation of structures from biology to solid state
- physics, as well as pioneering techniques in medical imaging.\cite{}
+ physics, as well as pioneering techniques in medical imaging.\cite{o2001free}
  
 
  But, much like the supercomputers of the 80's, the future of the field is limited by the size and expense of these
  facilities\sidenote{The famous cancellation of the Superconducting Super
  Collider in Texas due to budget problems in one dramatic example}. Laser plasma
  wakefield accelerators offer an option that is compact, and inexpensive by
- comparison. ALthough LPWA will never supplant linac's\footnote{This is because
+ comparison. ALthough LPWA will never supplant linac's\sidenote{This is because
      the beam produced by LPWA is not continuous; the nature of LPWA schemes
      means that the electrons beam produced will be an intense bunch, rather
  than a continuous beam like SLAC.} they offer a complimentary approach at a
@@ -83,38 +87,65 @@ orders of magnitude smaller.
  The quest to produce high-energy electrons has four main goals: getting
   high-energy electrons; having a narrow energy distribution; producing collumated beams; and having a large number of electrons
  produced.
- \todo[inline]{Need to add paragraph about why these are important}
+
+ In the context of free-electron lasers, these are important for the following
+ simple reasons: the frequency of the x-rays scales with the square of the
+ energy of the electrons, so the higher the energy the smaller length scales we
+ can probe; the narrower the electron energy distribution, the narrower the
+ x-ray linewidth; and the beam quality (number of electrons and angular spread)
+ will also directly effect the x-ray laser coherence.
  \subsection{History}
- In the 1950's, Tajima and Dawson proposed shooting a high-intensity laser at a
- plasma. The laser would generate a wakefield very similiar to a boat moving
- through water. What Tajima and Dawson found was that under the right
- conditions, this wakefield could be used to accelerate electrons in a process
- analogous to surfing. Unfortunately, the lasers of the day were unable to get
- to the high-intensities required.
+ In the 1970's, Tajima and Dawson proposed shooting a high-intensity laser at a
+ plasma\cite{PhysRevLett.43.267}. They predicted that the laser would generate a wakefield very similiar to a boat moving
+ through water and electrons could be accelerated by the wakefield.
+  Unfortunately, the lasers of the day were unable to get
+ to the high-intensities required. It was only the invention of the
+ chirped-pulse laser (CPA) fifteen years later that allowed serious progress in
+ the LPA field to occur\cite{backus1998high}.
 \begin{marginfigure}
 	\includegraphics[width=\marginparwidth]{../figures/datfig.pdf}
-    \caption{The progress of laser plasma wakefield acceleration by the total
+    \caption{\label{fig:progress}The progress of laser plasma wakefield acceleration by the total
     energy of the electrons. The dashed line shows the advent of
     quasi-monoenergetic electrons, until that point the electron bunches had
     large thermal tails. \em This data was gathered from the web of science
 abstract list}
 \end{marginfigure}
-N
- Plasma accelerator technology then moved in lockstep with improvements in lasers.
- Unfortunately, the electron bunches produced had large thermal distributions.
- 
- In 2002, Pushkin predicted the bubble regime, which would solve many of the
- problems historyically faced by LPWA schemes.\cite{}
- In 2004, three papers published simultaneously in Nature\cite{}, demonstrated
- quasi-monoenergetic electron bunches in the bubble regime. Their results were soon extended to
- obtain 1 GeV electron bunches. 
- \todo[inline]{Need to expand this more. Probably should read these papers}
+In order to excite the plasma wave, you had to use a laser at the resonant
+frequency, which scales with the square-root of the plasma density. For typical
+laboratory plasmas, this resonant frequency was out of reach for the laser's of
+the time. Several LPA schemes were devised to overcome
+this, the two major ones being the plasma beatwave accelerator (PBWA), and the
+self-modulated laser. Although the mechanics of these schemes differed the
+underlying principle was to use the beatwave generated by spatio-temporally
+overlapping two lasers to excite the plasma. This effort was moderately
+succesful: in 1995 electrons were succesfully accelerated to energies in excess
+of \SI{40}{\mega\electronvolt}. Unfortunately, these electron beams had large
+Maxwellian energy distributions, making them untenable for practical
+applications.
 
+ In 2002, Pushkin predicted the bubble regime, which would solve many of the
+ problems historyically faced by LPWA schemes. By using a laser so powerful it
+ completely expells electrons from a region, the bubble regime was predicted to
+ be able to produce mono-energetic electron energies. However, it would require
+ the discovery and development of CPA technology that would allow lasers to
+ reach the intensities required to bubble.
+ 
+
+ In 2004, this approach bore fruit, as three papers published simultaneously in
+ Nature\cite{mangles2004monoenergetic,faure2004laser,Geddes2004}, demonstrated
+ quasi-monoenergetic electron bunches in the bubble regime. Their results were
+ soon extended to achieve energies of \SI{1}{\giga\electronvolt} in 2006
+ \cite{Leemans2006}. 
  
  In 2013, a group at UT Austin produced a collumated, quasi-monoenergetic
  electron beam at 2.3 GeV\cite{Wang2013}, and in 2014 the Esarey group at UC
- Berkeley produced a 4 GeV\cite{} beam.
+ Berkeley produced a 4 GeV\cite{PhysRevLett.113.245002} beam. These recent
+ developments bring the field within striking distance of the LCLS at SLAC,
+ which uses electrons accelerated to \SI{17.4}{\giga\electronvolt}.
 
+ In the following section, we will discuss the physics of
+ Laser-Plasma-Acceleration, and then discuss the two most recent experiments
+ from UT Texas and UC Berkeley.
 \section{The Physics of Laser-Plasma-Acceleration}
 \begin{marginfigure}
     \resizebox{.7\marginparwidth}{!}{
@@ -131,33 +162,45 @@ N
         \draw  [thick,->,>=stealth] (wakefield) -- (eaccel);
     \end{tikzpicture}
 }
-\caption{\label{fig:flow}The LWFA process: first the intense laser (charaterized
-by the normalized field strength ($a_0 = e\vb{A}/m_e c^2$) interacts with the
-plasma (characterized by the plasma density ($n_e$) producing a longitudinal
-density modulation; this gives rise to a longitudinal electric field ($E_z$);
-which will in turn accelerate the electrons to a relativistic energy $\gamma_e$.}
+\caption{\label{fig:flow}The LWFA process. }
 \end{marginfigure}
    
 The LPWA process can be divided into three main topics, as shown in Figure
-\ref{fig:flow}. This section will review each in turn: first the laser-plasma
-interaction will be discussed; then, the wakefield properties will be developed;
-and finally, the actual process of electron acceleration will be discussed.
+\ref{fig:flow}. First the intense laser (charaterized
+by the normalized field strength ($a_0 = e\vb{A}/m_e c^2$) interacts with the
+plasma (characterized by the plasma density ($n_e$) producing a longitudinal
+density modulation; this gives rise to a longitudinal electric field ($E_z$);
+which will in turn accelerate the electrons to a relativistic energy
+$\gamma_e$.This section will review each in turn.
 
 Due to the complicated nature of the theory of LPWA in 3D relativistic fields, we will mainly
 discuss these topics in the linear regime, and show the numerical results of
 their extension into the 3D relativistic regime.
 
 \subsection{Laser-Plasma Interaction}
-As mentioned in Section \ref{sec:history}, it was only the advent of CPA that
-allowed lasers to be amplified to the require intensities to see many of the
-effects of LPWA. In the non-relativistic regime, the interaction of these laser
-pulses with the plasma will be through the Lorentz force\cite{jackson}. As the
+ The interaction of the exciting laser
+pulse with the plasma is governed by Lorentz force\cite{jackson}. As the
 mass of the ions in the plasma is many orders of magnitude larger than the
 electrons, it is valid to approximate the behaviour of the plasma as a fluid of
 mobile electrons against a background of ions.
 
-To first order, the movement of this fluid will be given by the electric force:
-$\vb{F} = e\vb{E}$, which will accelerate the electrons in the polarization
+With this simple picture, the motion of the electrons will be governed by the
+Lorentz force law, the continunity equation and Poisson's equation. If the
+intensity of the laser is small enough, then these equations can be
+linearalized, and are refered to the cold-fluid
+equations\cite{gorbunov1987excitation}.
+In this electron-fluid regime, the Lorentz force looks like:
+\begin{align}
+    \label{eq:fullLPWA}
+    \pdv{\vb{p}}{t} +(\vb{v} \cdot \grad)\vb{p} = e \qty( \grad \Phi
+    +\pdv{\vb{A}}{t} - \vb{v}\times \grad \times \vb{A} )
+\end{align}
+
+Where $\vb{p}$, $\vb{v}$ are the electron's momentum and velocity, and $\Phi$
+and $\vb{A}$ are the scalar and vector potentials of the total field.
+
+To first order, the movement of this fluid will be dominated by the force of the
+electric field of the laser on the electrons, accelerating them in the polarization
 plane. This is called the `quiver` momentum\footnote{So named because the electron will
 undergo rapid oscillations while its time averaged acceleration will be zero, so it will appear to be quivering}. This quiver momentum will not produce a net acceleration on the 
 electrons.
@@ -167,46 +210,24 @@ proportional to the intensity gradient, known as the ponderomotive force. This c
 thought of as the radiation pressure of the laser pulse, and will act to push
 electrons away from the local space of the laser packet. It is this
 ponderomotive force that will be directly used to drive the density waves that
-all LPWA schemes use. This is analogous to the physical situation of shooting a
+all LPA schemes use. This is analogous to the physical situation of shooting a
 cannonball underwater-- it will excite a density wave that co-propogates with
 it.
 
-Although tempting to imagine directly accelerating electrons using
-the ponderomotive force, it is worth noting that it scales inversely proporitional to gamma: at relativistic speeds it will be small. This is why the density wave is so important.
-
-
-It is worth noting that modern LWFA schemes operate in the bubble regime, where the laser pulse is so
-intense that it completely expels the electrons from its local space.
-This regime are too complicated to solve analytically. This means that the 
-majority of theoretical work currently being done is by using numerical methods. However, an intuition for the basic
-phenomena of LWFA can be developed by looking at simpler systems.
-
-\subsection{Wakefield Dynamics}
-
-As the electron fluid is perturbed by the ponderomotive force, there will be a
-large space-charge restoring force that acts upon them. In the simplest,
-one-dimensional case, this will give rise to a driven-oscillator type
-longitudinal density
-modulation that
-oscillates at the resonant frequency of the plasma ($\omega_p$). This is
-analogous to the ringing sound produced by striking a metal block.
-
-More formally, the equation that will govern the LPWA dynamics is:
+By combining the Lorentz force with Possion's equation and the
+fluid-continunity equation, a closed set of equations in one dimension can be found and solved to
+give the behaviour of the plasma electrons:
 \begin{equation}
-    \label{eq:fullLPWA}
-    \pdv{\vb{p}}{t} +(\vb{v} \cdot \grad)\vb{p} =
-            \underbrace{\frac{e}{c}\pdv{A}{t}}_\text{fast time scales} -
-            \underbrace{m_ec^2 \grad^2 \bar{a_0}}_\text{slow time scales},
-    \end{equation}
-In the regime where the normalized field strength is small ($a_0
-\ll 1$) this can be linearalized, and are tractable to analytic
-techniques. 
-
-More generally, for the relativistic case where ($a_0 /g 1$), there will
-non-linear modifications. First, the ponderomotive force generalizes to $a_0
-\rightarrow \bar{\gamma} = \qty(1 + \frac{p^2}{m^2c^2} + \frac{a_0^2}{2})^\frac{1}{2}$ Physically, these manifest as steepening phenomena,
-where the wave becomes steeper-- very similarily to the process of wavebreaking
-of ocean waves.
+    \label{eq:wave}
+    \qty( \pdv[2]{t} + \omega_\mathrm{p}^2 ) = c^2 \laplacian \frac{a^2}{2}
+\end{equation}
+where we have introduced the normalized vector potential $a = eA/m_e c$, and the
+resonant frequency of the electron fluid:
+\begin{equation}
+    \label{eq:wp}
+    \omega_\mathrm{p} = \sqrt{\frac{e^2 n_e}{m_e \epsilon_0}},
+\end{equation}
+Where $m_e$, $n_e$, and $e$ are the mass, density and charge of the electron, respectively.
 
 The resonant frequency of the plasma will give an experimental constraint. As
 with all driven-oscillator type systems, to drive the oscillator at resonance,
@@ -215,51 +236,75 @@ high-intensity waves, as their amplitude will ultimately determine the
 accelerating field $E_z$. In order to excite resonance then $\tau_\textrm{laser}
 \omega_p \approx \pi$. The resonance condition is further illustrated in Figure
 \ref{fig:resonance}.
+In this regime, the density of the electrons behaves like a wave that
+co-propogates with the laser pulse. We can connect the variations in density to
+the electric field produced using Possion's equation, which reduces to
+\begin{equation}
+    \vb{k}\dotproduct\vb{E} = \frac{\delta n_e}{\epsilon_0}
+\end{equation}
+This shows there will be a co-propogating electric field, which points along
+the propogation direction, and oscillates $\pi$ out of phase from the density
+w
+This field $E_z$ is the one that will be used to accelerate electrons.
+This process can be generalized into a non-linear regime by simply eliminating
+the assumption that $a \ll 1$, and an analytic solution can be found. However, in three
+dimensions the equations become intractable and numerical simulation is
+required to solve them. The solutions in one-dimension are plotted in Figure \ref{fig:plasmon}
+for a range of parameters.
+\begin{figure}[h!]
+        \begin{singlespace*}
+        \centering
+        \begin{subfigure}[t]{\textwidth}
+            \includegraphics[height = .4\textheight]{../figures/densityandewave.eps}
+            \caption{\small  Showing plasmons generated with varying strengths of the peak
+                amplitude of the laser pulse.\cite{genothesis}\label{fig:plasmon}
+                The laser pulse is the dashed line, the density perturbation is the grey
+                line, and the longitudinal electric field $E_z$ is the black
+                curve. The x-axis is showing the normalized co-ordinate $\zeta =
+                kz - wt$, which shows the evolution of the phase-front. Different
+                scenarios are shown: from left to right, the normalized field strength variable
+                ($a = eA/m_e c^2$) is varied, and from top to bottom, the duration of
+                the laser pulse is changed. \em Figure courtesy of Guillaume Genoud, Lund
+            Univeristy}
+        \end{subfigure}
 
-The numerical solutions to Eq. \eqref{eq:fullLPWA} are in Figure \ref{fig:plasmon}.
-   \begin{figure}[h!]
-       \centering
-       \includegraphics[width = \linewidth]{../figures/densityandewave.eps}
-       \caption{Showing plasmons generated with varying strengths of the peak
-       amplitude of the laser pulse.\cite{genothesis}\label{fig:plasmon}
-    The laser pulse is the dashed line, the density perturbation is the grey
-line, and the longitudinal electric field $E_z$ is the black curve. Different
-scenarios are shown: from left to right, the normalized field strength variable
-($a_0 = e\vb{E}/m_e c^2$) is varied, and from top to bottom, the duration of
-the laser pulse is changed. \em Figure courtesy of Guillaume Genoud, Lund
-Univeristy}
-   \end{figure}
+        \begin{subfigure}[t]{\textwidth}
+            \includegraphics[height = .3\textheight]{../figures/esarey3dnonlin.pdf}
 
-\pagebreak
+            \caption{\small  Numerical simulation for a 2D, non-linear model. Many of the
+                features in the 1D model remain-- the signature `leaning' of the density
+            pulse as it becomes non-linear being the most striking. }
+        \end{subfigure}
+\end{singlespace*}
+    \end{figure}
 
-   In summary, we have discussed the mechanism of acceleration (longitudinal
-   electric field produced by the density wave), and we have discussed how we
-   create this mechanism within the plasma (high-intensity laser pushes
-   electrons with the ponderomotive force.) Now, we have to discuss how the
-   electrons are actually accelerated. Much like water waves, plasmons cannot
-   accelerate objects unless two conditions are met\cite{PhysRevLett.113.085001}: the object needs to meet
-   some phase-matching requirements, and the plasmon needs to be non-linear. 
-
+It is worth noting that modern LWFA schemes operate in the bubble regime, where the laser pulse is so
+intense that it completely expels the electrons from its local space-- putting
+us firmly in the non-linear 3D regime.  This means that the 
+majority of theoretical work currently being done is by using numerical methods.
+An example is given in Figure \ref{fig:bubble}
+\begin{marginfigure}[0pt]
+    \includegraphics[width=\marginparwidth]{../figures/esblowout.pdf}
+    \caption{\label{fig:bubble} An example of the bubble regime created by a laser pulse with $a =
+    .3)$. The laser is moving toward the right.\cite{RevModPhys.81.1229}}
+\end{marginfigure}
 
    \subsection{Electron Trapping, Injection, and Acceleration}
 
     In order to be accelerated by the co-propogating electric field created by the
-    plasmon, the electrons need to be travelling at some minimum speed. In the
-    plasmon frame of reference, what an electron will see is, roughly, an
-    ion-sphere. If we confine the electrons motion to 1D, then it can exhibit
-    periodic motion about the centre of this sphere. 
-
-    However, for this to work, the electron needs to have some minimum energy.
-    Imagining a simple harmonic potential that is moving at some brisk speed $v_b >
-    \sqrt{2 V_\mathrm{height of well}/m} $, we can see that an electron at rest will
-    not be trapped: transforming to the potential's frame of reference, the
-    electron will be moving at a large speed and will have too much energy to be trapped.
-    This is quite similar to the case we are describing: however, we now have to
-    consider that the electron's motion is going to be relativistic. The
-    phase-space trajectories of various electrons are shown in Figure
-    \ref{fig:trapping}.
+    plasmon, the electrons need to be travelling at some minimum speed.
+    Transforming to the rest-frame of the plasmon, only those electrons that are
+    moving slowly enough will be trapped by the electrostatic field.
+    The phase-space trajectories of various test electrons are shown in Figure
+    \ref{fig:trapping}, illustrating that only for a specific range of the
+    electron momentum will they actually be able to be trapped. The background
+    electrons will not meet these requirements in the linear regime. This can be
+    overcome by having an external injection source of electrons, but this has
+    the obvious disadvantage of already requiring electrons with large energies.
+    As we discuss below, there is a way to use accelerate the background
+    electrons.
 \begin{figure}[h]%
-	\includegraphics[width=\textwidth]{../figures/trapping.pdf}
+    \includegraphics[width=\textwidth]{../figures/trapping.pdf}
     \caption{\label{fig:trapping} The various trajectories of electrons at
     different initial momentum ($u_z= p/m_e c^2$) in the reference frame of the laser
 pulse, which is moving at an relativisitc energy $\gamma = 13$ in the lab frame.
@@ -267,25 +312,61 @@ For specific initial electron energies the electrons will be trapped and
 accelerated by the wakefield. }
 \end{figure}
 
-However, much like how the individual water particles do not gain a net
-acceleration in ocean waves, in the linear regime the electrons will not gain a
-net acceleration.
-    For a very specific value of the accelerating electric field the background
-    electrons that make up the density flucuations will actually meet the
-    requirements to be trapped in this way. This gives rise to the phenomena of
-    wavebreaking. In contrast to the perhaps more familiar example of water-wave's
-    breaking, plasma wavebreaking is not a dispersion related phenomena. It is a
-    non-linear effect, where the accelerating field created by the density
-    flucuations of electrons in the plasma is strong enough to directly effect the
-    density flucuations themselves.
 
-    Wavebreaking is a useful phenomena for LWFA as it creates a larger field that
-    can give more energy to the electrons. The phenomelogical differences between a
-    linear plasmon and a wavebroken plasmon are show in Figure \ref{fig:plasmon}
+    If the amplitude of the laser field is strong enough to excite the plasmon into a non-linear regime, then there are ways for the background electrons to be
+accelerated. This process is refered to as self-injection. \sidenote{Although self-injection happens in
+        non-linear fields in both 1D and 3D, it occurs by different physical
+    processes\cite{esatrap}. We will be focusing on the 3D case in this review}
+    
+    Looking at Figure \ref{fig:plasmons}, the
+    non-linear regime plasmons are steeper on one edge. This is due to the fact
+    that the background electrons are having enough energy imparted to them to
+    affect the shape and properties of the plasmon. This process, refered to as
+    wavebreaking, is useful for
+    two reasons: it enhances the overall field and allows the background
+    electrons to meet the velocity requirements to be trapped by the plasmon.
+    The bubble regime, in which the laser is powerful enough to completely
+    expel the electrons from a central region of the pulse, is an extreme
+    example of wavebreaking in plasmons. Figure \ref{fig:bubbleschem} is a
+    schematic of the bubble regime.
 
+    \begin{marginfigure}[-70pt]
+    \includegraphics[width=\marginparwidth]{../figures/bubbleschem.pdf}
+    \caption{A schematic of the bubble
+    regime.\cite{genothesis}\label{fig:bubbleschem}}
+\end{marginfigure}
+
+
+
+    It can be shown using a combination of numerical and analytical analysis that in the bubble regime there is a specific requirement
+    for the radius of the bubble for self-injection to occur:$R/\sqrt{2} >
+    \omega_0/\omega_p$, where $R$ is the radius of the bubble, and $\omega_0$ is
+    the laser frequency.\cite{PhysRevLett.103.175003}. 
+
+    \begin{marginfigure}[70pt]
+        \includegraphics[width = \marginparwidth]{../figures/bubbletrap1.pdf}
+        \caption{Showing a trapped, and untrapped trajectory of an electron. The
+        bubble parameters are $R = 7$, $\gamma_0 = 4$}
+\end{marginfigure}
+    
+However, it is easy to gain a phenomolgical explanation of the dynamics of
+self-injection in the bubble regime. The bubble can be thought of as an
+ion-cavity moving relativistically through an
+electron fluid. A small sheath of electrons will form as a boundary layer
+between the ion-cavity and the surrounding electron fluid. This sheath will be
+in contact with the relativistic fields of the cavity for the longest time, and
+is the best candidate to be accelerated. If the laser defocuses, then the bubble
+will grow. If it grows on a time scale that is quick enough, electrons that
+previously wouldn't have the right initial orbit are now have a small enough
+relative velocity to be trapped. Although the dynamics of the laser evolution in
+the plasma are complicated, it will undergo cycles of focusing and defocusing
+due to diffraction and self-focusing phenomena-- discussed in more detail in
+Section \ref{sec:selffocus}. In this way, the bubble will breath, trapping and
+accelerating electrons. 
+    
     \subsection{Electron Acceleration}
     The plasma bubble will set up a very high \si{\giga \electronvolt \per
-    \centi \meter} acceleration field, however what will limit the total energy
+\centi \meter} acceleration field, however what will limit the total energy
     gain is how far the electron can be accelerated for. 
     There are three main lengths involved with accelerating the
     electrons.
@@ -316,9 +397,7 @@ net acceleration.
     electron was accelerated over that distance. Clearly, the limiting length
     scale is diffraction.
     \begin{marginfigure}
-        \begin{subfigure}[t]{\marginparwidth}
             \includegraphics[width=\linewidth]{../figures/energy.pdf}
-        \end{subfigure}
         \caption{The three length scales involved with accelerating electrons:
         $L_\mathrm{Dephase}$ where the electron outruns the wave, self-limiting
     the total energy gained; $L_\mathrm{Pump Depletion}$ where the incident
@@ -491,13 +570,19 @@ been made to extend the distances that relativistic self-guiding can be used
 over\cite{PhysRevLett.113.245001}.
 
 
-\section{Future Work and Outlook for the Field}
 \section{Conclusion}
-    \begin{equation}
-        \label{eq:wp}
-        \omega_\mathrm{p} = \sqrt{\frac{e^2 n_e}{m_e \epsilon_0}}.
-    \end{equation}
-    Where $m_e$, $n_e$, and $e$ are the mass, density and charge of the electron, respectively.
+In this review, we have highlighted two approaches for electron acceleration:
+the high-intensity, relativisticly guiding approach used by Texas, and the
+low-intensity, plasma-channel guided approached used by Berkeley. For further
+progress to be made in the field, there needs to be a better understanding of
+the evolution of the laser-plasma interaction and evolution. It is worth noting
+that the bubble regime-- the regime used by all groups trying to achieve GeV
+acceleration-- was first seen in simulations. 
+
+New imaging techniques at UT Texas, which allow in vivo imaging of the evolution
+of the laser and plasmon, as well as novel theorertical and computational
+approaches are the current frontier. The raw power exists to accelerate
+electrons to high GeV energies, all we need to do is control it.
 \bibliography{../rep.bib}
 \end{document}
 
