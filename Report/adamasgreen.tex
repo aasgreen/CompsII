@@ -190,6 +190,7 @@ acceleration; and the propogation of intense laser pulses in plasmas\sidenote{Du
 discuss these topics in the linear regime and show the numerical results of
 their extension into the 3D relativistic regime.}. 
 \subsection{The Interaction of Lasers and Plasmas and Creation of Wakefields}
+\label{sec:wakefield}
 The mass of the ions in the plasma is many orders of magnitude larger than the
 electrons, so it is valid to approximate the behaviour of the plasma as a fluid of
 mobile electrons against a static background of ions. The motion of the
@@ -472,43 +473,20 @@ could gain.\label{fig:energy}}
     for overcoming the inherent diffraction of the laser.
 
     \subsection{Laser Propogation in Plasma}
-    
-\section{Experimental Set-Up and State-of-the-Art}
-In this review, we will focus on the experimental efforts of two groups, UT
-Austin Texas, and University of California Berkeley. Although there are many
-more groups doing interesting work in the field of LWFA, these two groups are
-the main ones actively pursuing the goal of high-energy electron
-acceleration.
+   In the previous section we discussed the limiting length scale
+   caused by the inherent diffraction of the laser pulse. However, the plasma
+   itself can dramatically change the propogation of the laser pulse and this
+   can be used to overcome the diffraction limitations. To first order, we can
+   discuss the plasma's impact on laser propogation through investigating the
+   behaviour of the plasma's index of refraction.
 
-The Texas group uses very high-intensity laser pulses and exploits the
-phenomena of relativistic self-guiding to cancel out the inherent diffraction
-of the laser. The Berkeley group uses low-intensity laser pulses and plasma waveguide channels to overcome the diffraction issue. A more in depth review of
-each group and method is presented below. 
-.
-
-\subsection{Texas: Relativistic Focusing}
-
-In 2013, the Texas group reported a collimated beam of \SI{2}{\giga
-\electronvolt}, which blew current records out of the
-water\cite{Wang2013}.
-
-Their approach used the new petawatt laser facility at UT Austin. The large
-amplitudes that the laser was capable of generating placed them firmly in the
-relativistic self-guiding regime.
-
-\subsubsection{Relativistic Self-Guiding}
-The group velocity of the laser pulse will be set by the index of refraction of
-the medium, which in turn is $eta = v_g/c = c^{-1}\dv{w}{k}$.  The dispersion
-relation for a plasma is shown in Figure \ref{fig:disperion}. Thus,
-\begin{equation}
+   The index of refraction $\eta$ of a plasma is given by: $\eta c = d \omega / d k$,
+   where $\omega$ is the frequency and $k$ is the wavenumber of the propogating
+   wave. 
+   \begin{equation}
     \label{eq:index}
-    eta = \qty(1-\frac{\omega_p^2}{\omega^2})^{1/2}.
+    \eta = \qty(1-\frac{\omega_p(n_e)^2}{\omega^2})^{1/2}.
 \end{equation}
-
-If $eta$ has a density distribution where it is larger on the optical axis, then
-a guiding plasma lens will be formed that can counteract the effects of
-diffraction. As we will discuss below, one can use relativistic effects to
-achieve this. 
 \begin{marginfigure}
     \begin{tikzpicture}[domain=0:4,scale=.5]
         \draw[->] (0,0) -- (4,0) node[anchor=west,font=\footnotesize] {$k$};
@@ -522,31 +500,93 @@ achieve this.
     first order the laser will be dispersionless. }
     \end{marginfigure}
 
-Remembering back to Section \ref{sec:laser}, the first order effect of the
-high-intensity laser pulse will make the electrons quiver in the polarization
-plane.If the laser is intense enough, the electrons will be quivering
-relativistically, and will have maximum energy as they pass through the optical
-axis of the pulse. This means that their mass will be a maximum on the optical
-axis. This can be roughly seen to change the index of refraction, as:
+For our purposes, the most important scaling behaviour of the
+index of refraction is with the electrons mass and density. Recalling that
+$\omega_p$ scales as $\sqrt{n_e/m_e}$, $\eta$ will scale as:
 \begin{equation}
-    \label{eq:indexrel}
-    \eta(m_e) \rightarrow \eta(\gamma m_e) \approx
-1-\frac{\omega_p^2}{2\omega^2}\frac{\delta n(r)}{\gamma}
+    \label{eq:etascale}
+    \eta = \qty(1-\frac{n_e}{m_e}f)^{1/2}
 \end{equation}
-where $\delta n(r) $is a density variation, and $gamma$ will be a maximum on
-axis.\cite{esarey} This gives rise to the focusing behaviour
-discussed above.
 
-This sets a very harsh experimental parameter, as the fields have to be
-relativistic enough to be able to counter the effects of diffraction. It can be
-shown that this limit is that the power in the field is P(GW) = 17.4
-$(\omega/\omega_p)^2$\cite{esarey}.
+Recalling that a converging lens has $d\eta/dr < 0$, we can see that the plasma
+can counteract diffraction by acting like a converging lens in two cases: if $d
+n_e/dr <0$ or $d m_e/dr >0$.
+The first case is due to relativistic effects. As we discussed in Section
+\ref{sec:wakefield}, the first order effect of the laser is going to be
+accelerating them in the polarization plane: the quiver momentum. The electrons
+will have a maximum amount of kinetic energy as they pass through the centre of
+the laser pulse, and through relativity we know that this corresponds to an
+increase in their mass. Thus, the effective mass of the electrons will have
+$dm_e/dr<0$ and the plasma will act as a focusing lens. This phenomena is
+refered to as relativisitic self-focusing and is used by all groups to some
+extent. However, in order to use relativistic self-focusing to counteract diffraction,
+the laser has to be intense enough to meaningfully change the mass of the
+electrons. This condition has been found to be $I >$ \SI{17.5}{\giga
+\watt\per\centi\meter^2}\cite{}.
 
-In reality, the dynamics are much more complicated, and require detailed
-numerical simulations, one such example is shown in Figure
-\ref{fig:propsim}\cite{Wang2013}. This is partially due to the fact that the
-front and back of the waves will not satisfy the relativistic criterion, and
-diffract away-- dynamically changing the pulse shape, which can have an effect.
+There are several subtlies involved with relativistic self-focusing that
+our proof-of-concept argument doesn't reveal. Chief amoung these is the effect
+of pulse length on relativistic self-focusing. If we consider that the electrons
+are responding to the laser at frequency $\omega_p$, then it will take time scales on the order of $\tau_p
+= \frac{1}{2\pi\omega_p}$ for the relativistic effect to build up, ie. the middle
+    of the laser pulse will be `seeing' the relativistic index gradient created
+    by the front of the pulse. This has two main consequences: first, long
+    pulses $\tau_\textrm{duration} > \tau_p$ are more susceptible to
+    relativistic effects, and the front of the pulse will be constantly
+    diffracting away. Groups that primarily use relativistic self-focusing, such
+    as the UT Austin group, not
+    only have to choose laser pulses that are intense enough, but also have to
+    choose them to be long enough. 
+
+    However, from Equation \eqref{eq:etascale} we can see that a direct
+    modulation of the density of the electrons can also achieve focusing
+    effects. As long as the density goes as $dn_e/dr >0$, we have the
+    appropriate condition for a converging lens. This is the approach used by
+    the UC Berkeley group, where a plasma channel is used to give the
+    appropriate density modulation. The plasma channel is a simple tube containing
+hydrogen gas with a metal plate at each end. A voltage is applied across the
+length of the tube, ionizing the gas. The gas will cool down more rapidly along
+the edges of the tube, and this will give rise to an approximately parabolic
+density profile of the hydrogen
+gas\cite{PhysRevLett.89.185003,PhysRevE.63.015401}. It is this parabolic density profile which
+will act as the focusing lens of the plasma wave. The evolution of a laser pulse
+in a plasma channel is shown in Figure \ref{fig:esasim}. 
+\begin{marginfigure}
+	\includegraphics[width=\marginparwidth]{../figures/esareycapfield.pdf}
+    \caption{Evolution of the peak normalized intensity of the laser pulse,
+    ($a_0(z)$ done using a particle-in-cell simulation for a top-hat laser pulse
+    with energy 16 J, through a 9 \si{cm} plasma waveguide. {\em From Leemans
+et. al. 2014 \cite{PhysRevLett.113.245002}}\label{fig:esasim}}
+\end{marginfigure}
+
+
+
+
+  \section{Experimental Set-Up and State-of-the-Art}
+In this review, we will focus on the experimental efforts of two groups, UT
+Austin Texas, and University of California Berkeley. Although there are many
+more groups doing interesting work in the field of LWFA, these two groups are
+the main ones actively pursuing the goal of high-energy electron
+acceleration.
+
+The Texas group uses very high-intensity laser pulses and exploits the
+phenomena of relativistic self-guiding to cancel out the inherent diffraction
+of the laser. The Berkeley group uses low-intensity laser pulses and plasma waveguide channels to overcome the diffraction issue. A more in depth review of
+each group and method is presented below. 
+
+
+\subsection{Texas}
+
+In 2013 the Texas group reported a collimated beam of \SI{2}{\giga
+\electronvolt}\cite{Wang2013}.
+
+By leveraging the new petawatt laser facility at UT Austin they were able to get
+firmly within the experimental constraints for relativitic self-guiding.
+However, due to the intense non-linear interactions involved detailed numerical
+work has to be done to find the right initial conditions to produce an optimal
+beam. One such example is shown in Figure
+\ref{fig:propsim}\cite{Wang2013}, where by altering intial conditions such as the beam
+profile, startlingly different dynamics occured. 
 \begin{marginfigure}
 	\includegraphics[width=\marginparwidth]{../figures/wakesimulation.pdf}
     \caption{Simulations done by the Texas group using the WAKE
@@ -558,11 +598,18 @@ diffract away-- dynamically changing the pulse shape, which can have an effect.
     pulse.\label{fig:propsim}}
 \end{marginfigure}
 
-\subsubsection{Experimental Setup and Results}
+
+
+The Texas group based their experiment on a paper by\cite{}, which
+predicted the intial conditions needed to obtain high-quality mono-energetic
+beams. Although they were not able to get to the predicted energies of\cite{},
+this approach was largely successful, as they were able to double the energies
+of previous results\cite{PhysRevLett.113.245001}.\cite{}.
+
 Shown in Figure \ref{fig:experTexas} is the experimental setup for Texas. At
 its heart, it is a high-intensity laser that is hitting an ionized gas. The
 majority of the experiment is the diagnostics, which allow the team to determine
-the energy and spread of the electrons.
+the energy and angular spread of the electrons.
 \begin{figure}[b!]
 	\includegraphics[width=\textwidth]{../figures/texasexplayout.pdf}
     \caption{\small The experimental setup of the Texas group.\cite{Wang2013}
@@ -584,58 +631,35 @@ the energy and spread of the electrons.
 \end{figure}
 
 The Texas group is now hard at work trying to find a strategy to increase the
-energy of the electrons. This is due to the very complicated dynamics of the
-highly non-linear laser-plasma interaction that leads to self-focusing. As
+energy of the electrons. As
 shown in Figure \ref{fig:propsim}, the behaviour of the self-focusing is very
 dependent on initial conditions (laser intensity, laser pulse shape, etc.). As
 no analytic model can fully encompass its behaviour, numerical simulation is
 required to understand the self-focusing behaviour required to produce
-acceleration lengths required for high energy electrons.
+acceleration lengths required for high energy electrons and there are already
+several novel proposals to increasing the energy of the electrons\cite{}.
 
-\subsection{Low-Intensity, Quasi-Linear Plasmas with Waveguides}
+\subsection{UC Berkeley}
 
 \begin{marginfigure}
     \includegraphics[width=\marginparwidth]{../figures/esaenergy.pdf}
     \caption{The energy spectrum for the recent Berkeley result.}
 \end{marginfigure}
 
-
 In 2014, the Berkeley group reported a collimated electron beam with peak
-energy of \SI{4.2}{\giga \electronvolt}.
-
-The Berkeley has, for a while now, pursued the strategy of low-intensity laser
-pulses that are guided through channels. Their most current results use a
-capillary discharge channel. The physics of focusing remain the same: there is a
-radial density profile that has the same profile as a focusing lens. Instead of
-the density profile coming from relativistic effects, like the Texas group, the
-Berkeley group uses a plasma channel guide, which is a simple tube containing
-hydrogen gas, with a metal plate at each end. A voltage is applied across the
-length of the tube, ionizing the gas. The gas will cool down more rapidly along
-the edges of the tube, and this will give rise to an approximately parabolic
-density profile of the hydrogen
-gas\cite{PhysRevLett.89.185003,PhysRevE.63.015401}. It is this parabolic density profile which
-will act as the focusing lens of the plasma wave. The evolution of a laser pulse
-in a plasma channel is shown in Figure \ref{fig:esasim}. 
-\begin{marginfigure}
-	\includegraphics[width=\marginparwidth]{../figures/esareycapfield.pdf}
-    \caption{Evolution of the peak normalized intensity of the laser pulse,
-    ($a_0(z)$ done using a particle-in-cell simulation for a top-hat laser pulse
-    with energy 16 J, through a 9 \si{cm} plasma waveguide. {\em From Leemans
-et. al. 2014 \cite{PhysRevLett.113.245002}}\label{fig:esasim}}
-\end{marginfigure}
-
-
-The benefits over the Texas strategy is that they gain significantly on energy
-conversion.  The use of the plasma channel makes the laser-wakefield interaction
-more stable, the pulse takes much longer to diffract-- allowing the electrons to
-be accelerated over a much larger distance. This means that a lower intensity
-laser can be used. 
- As well, there are some concerns in the field
-that the relativistic self-focusing process is too unstable to guide the beam
-over the necessarily distances\cite{RevModPhys.81.1229}, but some progress has
-been made to extend the distances that relativistic self-guiding can be used
-over\cite{PhysRevLett.113.245001}.
-
+energy of \SI{4.2}{\giga \electronvolt}. They achieved this through a slightly
+different experimental philosophy than the Texas group. By using lower-intensity
+short-duration lasers, they are able to use a plasma-channel guide. Although
+relativistic self-focusing is still required to achieve the high-intensities
+needed for the bubble regime, the plasma-channel does the majority of the work
+in preventing laser diffraction. Their use of a lower intensity laser has two
+main benefits. First, they signifigantly gain on energy conversion efficiency,
+although the acceleration gradients are smaller, they are able to guide them
+over larger distances. Second, because the laser is lower intensity, the dynamics
+of relativistic self-focusing and non-linear laser-plasma interactions are less
+pronounced, greatly simplifying the dynamics of the laser propogation. However,
+they will ultimately be limited by the pump-depletion length, as the laser
+simply has less energy than the Texas petawatt laser.
 
 \section{Conclusion}
 In this review, we have highlighted two approaches for electron acceleration:
